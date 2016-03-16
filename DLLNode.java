@@ -1,26 +1,30 @@
 /*****************************************************
- * class LLNode
+ * class DLLNode
  * Implements a node, for use in lists and other container classes.
  * Stores its data as a String
  *****************************************************/
 
-public class LLNode {
+public class DLLNode {
 
     private String _cargo;    //cargo may only be of type String
-    private LLNode _nextNode; //pointer to next LLNode
+    private DLLNode _nextNode; //pointer to next DLLNode
+    private DLLNode _lastNode; //pointer to previous DLLNode
 
 
     // constructor -- initializes instance vars
-    public LLNode( String value, LLNode next ) {
+    public DLLNode( String value, DLLNode last , DLLNode next) {
 	_cargo = value;
+	_lastNode = last;
 	_nextNode = next;
     }
-
+    
 
     //--------------v  ACCESSORS  v--------------
     public String getCargo() { return _cargo; }
 
-    public LLNode getNext() { return _nextNode; }
+    public DLLNode getLast() { return _lastNode; }
+
+    public DLLNode getNext() { return _nextNode; }
     //--------------^  ACCESSORS  ^--------------
 
 
@@ -31,8 +35,14 @@ public class LLNode {
 	return foo;
     }
 
-    public LLNode setNext( LLNode newNext ) {
-	LLNode foo = getNext();
+    public DLLNode setLast( DLLNode newLast ) {
+	DLLNode foo = getLast();
+	_lastNode = newLast;
+	return foo;
+    }
+
+    public DLLNode setNext( DLLNode newNext ) {
+	DLLNode foo = getNext();
 	_nextNode = newNext;
 	return foo;
     }
@@ -49,13 +59,13 @@ public class LLNode {
 	//Below is an exercise in creating a linked list...
 
 	//Create a node
-	LLNode first = new LLNode( "cat", null );
+	DLLNode first = new DLLNode( "cat", null );
 
 	//Create a new node after the first
-	first.setNext( new LLNode( "dog", null ) );
+	first.setNext( new DLLNode( "dog", null ) );
 
 	//Create a third node after the second
-	first.getNext().setNext( new LLNode( "cow", null ) );
+	first.getNext().setNext( new DLLNode( "cow", null ) );
 
 	/* A naive list traversal, has side effect of destroying list
 	while( first != null ) {
@@ -68,7 +78,7 @@ public class LLNode {
 	//A: garbage collector reclaims that memory
 
 	//...so better: (w/o moving first pointer)
-	LLNode temp = first; //create ptr to first so JGC doesn't take it
+	DLLNode temp = first; //create ptr to first so JGC doesn't take it
 	while( temp != null ) {
 	    System.out.println( temp );
 	    temp = temp.getNext();
@@ -76,4 +86,4 @@ public class LLNode {
 
     }//end main
 
-}//end class LLNode
+}//end class DLLNode 
