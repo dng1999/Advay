@@ -1,7 +1,7 @@
 /*
 Team Advay - Lorenz Vargas, Dorothy Ng
 APCS2 pd10
-HW14a -- On the DLL
+HW14b -- On the DLL
 2016-03-16
 */
 /*****************************************************
