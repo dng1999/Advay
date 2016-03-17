@@ -1,3 +1,9 @@
+/*
+Team Advay - Lorenz Vargas, Dorothy Ng
+APCS2 pd10
+HW14a -- On the DLL
+2016-03-16
+ */
 /*****************************************************
  * class DLLNode
  * Implements a node, for use in lists and other container classes.

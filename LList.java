@@ -19,7 +19,7 @@ public class LList implements List { //your List interface must be in same dir
 
     //--------------v  List interface methods  v--------------
     public boolean add( String newVal ) { 
-	LLNode tmp = new LLNode( newVal, _head );
+	LLNode tmp = new LLNode(null, newVal, _head );
 	_head = tmp;
 	_size++;
 	return true;
