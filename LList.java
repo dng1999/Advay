@@ -1,3 +1,9 @@
+/*
+Team Advay - Lorenz Vargas, Dorothy Ng
+APCS2 pd10
+HW14a -- On the DLL
+2016-03-16
+*/
 /*****************************************************
  * class LList
  * Implements a linked list of DLLNodes, each containing String data
@@ -129,7 +135,8 @@ public class LList implements List { //your List interface must be in same dir
 
 	    //remove target node
 	    tmp.setNext( tmp.getNext().getNext() );
-	    tmp.getNext().setLast(tmp);
+	    if (index!=_size-1)
+		tmp.getNext().setLast(tmp);
 	}
 
 	//decrement size attribute
