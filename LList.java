@@ -77,7 +77,7 @@ public class LList implements List { //your List interface must be in same dir
 	if ( index < 0 || index >= size() )
 	    throw new IndexOutOfBoundsException();
 
-	LLNode newNode = new LLNode( newVal, null );
+	LLNode newNode = new LLNode( null, newVal, null );
 
 	//if index==0, insert node before head node
 	if ( index == 0 ) 
@@ -90,7 +90,9 @@ public class LList implements List { //your List interface must be in same dir
 		tmp = tmp.getNext();
 
 	    //insert new node
+	    tmp.getNext().setLast( newNode );
 	    newNode.setNext( tmp.getNext() );
+	    newNode.setLast(tmp);
 	    tmp.setNext( newNode );
 
 	    //increment size attribute
@@ -114,7 +116,8 @@ public class LList implements List { //your List interface must be in same dir
 	    retVal = _head.getCargo();
 
 	    //remove target node
-	    _head = _head.getNext();	    
+	    _head = _head.getNext();
+	    _head.setLast(null);
 	}
 	else {
 	    //walk to node before desired node
@@ -126,6 +129,7 @@ public class LList implements List { //your List interface must be in same dir
 
 	    //remove target node
 	    tmp.setNext( tmp.getNext().getNext() );
+	    tmp.getNext().setLast(tmp);
 	}
 
 	//decrement size attribute
